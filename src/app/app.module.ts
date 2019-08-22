@@ -13,6 +13,7 @@ import { DonationsPageComponent } from './donations-page/donations-page.componen
 import { MapComponent } from './dashboard-page/map/map.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { NewsDashboardComponent } from './news-page/news-dashboard/news-dashboard.component';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NewsDashboardComponent } from './news-page/news-dashboard/news-dashboar
     DonationsPageComponent,
     MapComponent,
     ContactPageComponent,
-    NewsDashboardComponent
+    NewsDashboardComponent,
+    NavbarComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
