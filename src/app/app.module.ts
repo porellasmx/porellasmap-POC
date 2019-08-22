@@ -12,6 +12,7 @@ import { NewsPageComponent } from './news-page/news-page.component';
 import { DonationsPageComponent } from './donations-page/donations-page.component';
 import { MapComponent } from './dashboard-page/map/map.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
+import { NewsDashboardComponent } from './news-page/news-dashboard/news-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
     NewsPageComponent,
     DonationsPageComponent,
     MapComponent,
-    ContactPageComponent
+    ContactPageComponent,
+    NewsDashboardComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
