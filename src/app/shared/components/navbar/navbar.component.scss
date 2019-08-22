@@ -1,0 +1,10 @@
+::ng-deep {
+  .fas {
+    color: #fff;
+
+    &.fa-ellipsis-v {
+      margin-right: 16px;
+      cursor: pointer;
+    }
+  }
+}

@@ -3,29 +3,35 @@
   [containerInside]="false"
 >
   <mdb-navbar-brand>
-    <a class="logo navbar-brand" href="#"><i class="fas fa-ellipsis-v"></i></a>
+    <i class="fas fa-ellipsis-v" (click)="onToggleSidenav()"></i>
   </mdb-navbar-brand>
   <links>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active waves-light" mdbWavesEffect>
-        <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link">Inicio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item waves-light" mdbWavesEffect>
-        <a class="nav-link">Features</a>
+        <a class="nav-link">El Projecto</a>
       </li>
       <li class="nav-item waves-light" mdbWavesEffect>
-        <a class="nav-link">Pricing</a>
+        <a class="nav-link">Dashboard</a>
       </li>
       <li class="nav-item waves-light" mdbWavesEffect>
-        <a class="nav-link">Opinions</a>
+        <a class="nav-link">Donaciones</a>
+      </li>
+      <li class="nav-item waves-light" mdbWavesEffect>
+        <a class="nav-link">Contacto</a>
       </li>
     </ul>
     <ul class="navbar-nav nav-flex-icons">
       <li class="nav-item waves-light" mdbWavesEffect>
-        <a class="nav-link"><mdb-icon fab icon="facebook-f"></mdb-icon></a>
+        <a class="nav-link"><i class="fas fa-user-slash"></i>Salir</a>
       </li>
       <li class="nav-item waves-light" mdbWavesEffect>
-        <a class="nav-link"><mdb-icon fab icon="twitter"></mdb-icon></a>
+        <a class="nav-link"><i class="fas fa-user-shield"></i>Entrar</a>
+      </li>
+      <li class="nav-item waves-light" mdbWavesEffect>
+        <a class="nav-link"><mdb-icon fab icon="facebook-f"></mdb-icon></a>
       </li>
       <li class="nav-item waves-light" mdbWavesEffect>
         <a class="nav-link"><mdb-icon fab icon="instagram"></mdb-icon></a>
@@ -33,17 +39,3 @@
     </ul>
   </links>
 </mdb-navbar>
-<!-- Main -->
-<main>
-  <div class="container" style="height:1500px;">
-    <div class="row pt-5">
-      <div class="col text-center">
-        <h2>This Navbar is fixed</h2>
-        <h5>
-          It will always stay visible on the top, even when you scroll down
-        </h5>
-      </div>
-    </div>
-  </div>
-</main>
-<!-- /.Main -->
