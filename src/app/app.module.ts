@@ -10,6 +10,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { NewsPageComponent } from './news-page/news-page.component';
 import { DonationsPageComponent } from './donations-page/donations-page.component';
+import { MapComponent } from './dashboard-page/map/map.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DonationsPageComponent } from './donations-page/donations-page.componen
     LoginPageComponent,
     SignupPageComponent,
     NewsPageComponent,
-    DonationsPageComponent
+    DonationsPageComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
