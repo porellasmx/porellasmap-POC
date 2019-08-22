@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppRoutingModule } from './app-routing.module';
 
 /* App components */
@@ -20,6 +20,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 
 /*MDB Modules */
 import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
+import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -35,11 +36,13 @@ import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
     ContactPageComponent,
     NewsDashboardComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MDBBootstrapModule.forRoot(),
     NavbarModule,
     WavesModule,
     ButtonsModule
