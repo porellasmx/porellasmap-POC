@@ -11,6 +11,7 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
 import { NewsPageComponent } from './news-page/news-page.component';
 import { DonationsPageComponent } from './donations-page/donations-page.component';
 import { MapComponent } from './dashboard-page/map/map.component';
+import { ContactPageComponent } from './dashboard-page/contact-page/contact-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MapComponent } from './dashboard-page/map/map.component';
     SignupPageComponent,
     NewsPageComponent,
     DonationsPageComponent,
-    MapComponent
+    MapComponent,
+    ContactPageComponent
   ],
   imports: [
     BrowserModule,
