@@ -14,6 +14,7 @@ import { MapComponent } from './dashboard-page/map/map.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { NewsDashboardComponent } from './news-page/news-dashboard/news-dashboard.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
     MapComponent,
     ContactPageComponent,
     NewsDashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
