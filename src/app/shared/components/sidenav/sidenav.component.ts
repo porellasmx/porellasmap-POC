@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UiService } from '../../services/ui.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent implements OnInit {
-
-  constructor() { }
+  toggleSidenav: boolean;
+  constructor(private uiService: UiService) {}
 
   ngOnInit() {
+    this.getSidenavStatus();
   }
 
+  getSidenavStatus(): void {
+    this.uiService.$toggleSidenav.subscribe(tgs => (this.toggleSidenav = tgs));
+  }
 }
