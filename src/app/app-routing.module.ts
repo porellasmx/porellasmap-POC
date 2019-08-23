@@ -9,7 +9,7 @@ import { ReportDetailsComponent } from './report-details/report-details.componen
 
 const routes: Routes = [
   {
-    path: '*',
+    path: 'inicio',
     component: HomePageComponent
   },
   {
@@ -29,8 +29,18 @@ const routes: Routes = [
     component: StatsComponent
   },
   {
-    path: 'dashboard/reporte/:id',
+    path: 'reporte/:id',
     component: ReportDetailsComponent
+  },
+  {
+    path: '',
+    redirectTo: '/inicio',
+    pathMatch: 'full'
+  },
+  {
+    path: '*',
+    redirectTo: '/inicio',
+    pathMatch: 'full'
   }
 ];
 
