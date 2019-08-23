@@ -21,6 +21,8 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 /*MDB Modules */
 import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
 import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
+import { NewReportComponent } from './dashboard-page/new-report/new-report.component';
+import { StatsComponent } from './dashboard-page/stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { SidenavComponent } from './shared/components/sidenav/sidenav.component'
     NewsDashboardComponent,
     NavbarComponent,
     FooterComponent,
-    SidenavComponent
+    SidenavComponent,
+    NewReportComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,
