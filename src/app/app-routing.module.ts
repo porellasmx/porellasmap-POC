@@ -5,6 +5,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MapComponent } from './dashboard-page/map/map.component';
 import { NewReportComponent } from './dashboard-page/new-report/new-report.component';
 import { StatsComponent } from './dashboard-page/stats/stats.component';
+import { ReportDetailsComponent } from './report-details/report-details.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'dashboard/estadisticas',
     component: StatsComponent
+  },
+  {
+    path: 'dashboard/reporte/:id',
+    component: ReportDetailsComponent
   }
 ];
 
