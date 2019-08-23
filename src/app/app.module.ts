@@ -23,6 +23,7 @@ import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
 import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
 import { NewReportComponent } from './dashboard-page/new-report/new-report.component';
 import { StatsComponent } from './dashboard-page/stats/stats.component';
+import { ReportDetailsComponent } from './dashboard-page/report-details/report-details.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { StatsComponent } from './dashboard-page/stats/stats.component';
     FooterComponent,
     SidenavComponent,
     NewReportComponent,
-    StatsComponent
+    StatsComponent,
+    ReportDetailsComponent
   ],
   imports: [
     BrowserModule,
