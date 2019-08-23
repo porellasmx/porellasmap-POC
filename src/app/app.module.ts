@@ -17,13 +17,13 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { NewsDashboardComponent } from './news-page/news-dashboard/news-dashboard.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
-
-/*MDB Modules */
-import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
 import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
 import { NewReportComponent } from './dashboard-page/new-report/new-report.component';
 import { StatsComponent } from './dashboard-page/stats/stats.component';
 import { ReportDetailsComponent } from './report-details/report-details.component';
+
+/*MDB Modules */
+import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
