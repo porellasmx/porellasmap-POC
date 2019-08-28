@@ -3,9 +3,15 @@
   <div class="sidenav__body">
     <div class="sidenav__body--list">
       <ul>
-        <li><i class="fas fa-map-marker-alt"></i>Mapa</li>
-        <li><i class="far fa-chart-bar"></i> Estadisticas</li>
-        <li><i class="fas fa-bullhorn"></i> Crear Denuncia</li>
+        <li [routerLink]="['dashboard/mapa']">
+          <i class="fas fa-map-marker-alt"></i>Mapa
+        </li>
+        <li [routerLink]="['dashboard/estadisticas']">
+          <i class="far fa-chart-bar"></i> Estadisticas
+        </li>
+        <li [routerLink]="['dashboard/denuncia']">
+          <i class="fas fa-bullhorn"></i> Crear Denuncia
+        </li>
       </ul>
     </div>
   </div>
@@ -13,3 +19,5 @@
     <i class="far fa-flag"></i> Reportar Denuncia Falsa
   </div>
 </div>
+
+<router-outlet></router-outlet>
