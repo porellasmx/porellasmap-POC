@@ -31,9 +31,10 @@
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
-        <mat-form-field>
-          <input matInput placeholder="Imagenes" />
-        </mat-form-field>
+        <button type="button" mat-stroked-button color="accent" (click)="imgFileInput.click()">
+          Adjuntar Imagen
+        </button>
+        <input hidden type="file" #imgFileInput (change)="previewImage($event)" />
 
         <mat-form-field>
           <textarea matInput placeholder="Ubicacion En El Map"></textarea>
