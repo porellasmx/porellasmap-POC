@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /* App components */
 import { AppComponent } from './app.component';
@@ -25,6 +26,15 @@ import { ReportDetailsComponent } from './report-details/report-details.componen
 /*MDB Modules */
 import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
 
+/*Angular Material*/
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,13 +57,21 @@ import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     NavbarModule,
     WavesModule,
-    ButtonsModule
+    ButtonsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatCardModule,
+    MatButtonModule
   ],
-  providers: [],
+  providers: [MatNativeDateModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

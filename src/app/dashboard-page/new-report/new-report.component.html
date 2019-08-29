@@ -1,1 +1,44 @@
-<p>new-report works!</p>
+<div class="new-report-page">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Reportar Abuso</mat-card-title>
+      <mat-card-subtitle>#PorEllasMapMx</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form action="" class="report-form">
+        <mat-form-field>
+          <input matInput placeholder="Direccion" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Nombre del Lugar" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea matInput placeholder="Descripcion"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Tipo De Abuso">
+            <mat-option value="option">sdefsd</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Fecha" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea matInput placeholder="Ubicacion En El Map"></textarea>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-stroked-button color="accent">Cancelar</button>
+      <button mat-raised-button color="accent">Reportar</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

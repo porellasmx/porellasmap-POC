@@ -1,0 +1,20 @@
+.new-report-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .report-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .example-card {
+    min-width: 500px;
+  }
+
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+}
