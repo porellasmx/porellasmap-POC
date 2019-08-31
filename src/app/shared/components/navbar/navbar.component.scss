@@ -1,4 +1,9 @@
 ::ng-deep {
+  mdb-navbar {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+  }
   .fas {
     color: #fff;
 
