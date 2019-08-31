@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 /* App components */
 import { AppComponent } from './app.component';
@@ -72,7 +73,8 @@ import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
     MatDatepickerModule,
     MatCardModule,
     MatButtonModule,
-    GooglePlaceModule
+    GooglePlaceModule,
+    ReactiveFormsModule
   ],
   providers: [MatNativeDateModule],
   bootstrap: [AppComponent]
