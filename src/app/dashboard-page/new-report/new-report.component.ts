@@ -32,13 +32,11 @@ export class NewReportComponent implements OnInit {
   }
 
   handleAddressChange(address: Address): void {
-    console.log(address);
     this.reportForm.patchValue({
       address: address.formatted_address,
       placeName: address.name,
       locationLatLong: `Lat: ${address.geometry.location.lat()} Long: ${address.geometry.location.lng()}`
     });
-    console.log(address.geometry.location.lng());
   }
 
   buildAbuseList(): void {
