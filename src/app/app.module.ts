@@ -35,6 +35,8 @@ import { MatNativeDateModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +71,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatNativeDateModule,
     MatDatepickerModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    GooglePlaceModule
   ],
   providers: [MatNativeDateModule],
   bootstrap: [AppComponent]
