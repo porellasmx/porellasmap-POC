@@ -8,9 +8,16 @@
     <mat-card-content>
       <form action="" class="report-form">
         <mat-form-field>
-          <input matInput placeholder="Direccion" />
+          <input
+            matInput
+            [options]="options"
+            placeholder="Direccion"
+            ngx-google-places-autocomplete
+            #placesRef
+            color="accent"
+            (onAddressChange)="handleAddressChange($event)"
+          />
         </mat-form-field>
-
         <mat-form-field>
           <input matInput placeholder="Nombre del Lugar" />
         </mat-form-field>
@@ -21,23 +28,29 @@
 
         <mat-form-field>
           <mat-select placeholder="Tipo De Abuso">
-            <mat-option value="option">sdefsd</mat-option>
+            <mat-option value="abuse" *ngFor="let abuse of abuseList">{{ abuse }}</mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="Fecha" />
+          <input matInput [matDatepicker]="picker" placeholder="Fecha Del Suceso" />
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
-        <button type="button" mat-stroked-button color="accent" (click)="imgFileInput.click()">
+        <button
+          type="button"
+          mat-stroked-button
+          color="accent"
+          class="button--upload"
+          (click)="imgFileInput.click()"
+        >
           Adjuntar Imagen
         </button>
         <input hidden type="file" #imgFileInput (change)="previewImage($event)" />
 
         <mat-form-field>
-          <textarea matInput placeholder="Ubicacion En El Map"></textarea>
+          <input matInput placeholder="Ubicacion En El Map (Latitud & Longitud)" />
         </mat-form-field>
       </form>
     </mat-card-content>
