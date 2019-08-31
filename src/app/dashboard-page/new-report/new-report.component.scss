@@ -1,13 +1,14 @@
 .new-report-page {
   width: 100%;
   display: flex;
-  align-items: center;
+  //align-items: center;
   height: 90vh;
-
+  align-items: center;
   .report-form-container {
+    padding-left: 240px;
     width: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     .report-form {
       display: flex;
       flex-direction: column;
