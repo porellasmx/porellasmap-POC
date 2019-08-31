@@ -6,7 +6,7 @@
       <mat-card-subtitle>#PorEllas #NiUnaMas #PorEllasMapMx</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <form action="" class="report-form">
+      <form [formGroup]="reportForm" class="report-form">
         <mat-form-field>
           <input
             matInput
@@ -15,27 +15,49 @@
             ngx-google-places-autocomplete
             #placesRef
             color="accent"
+            formControlName="address"
             (onAddressChange)="handleAddressChange($event)"
           />
+          <mat-error *ngIf="!reportForm.hasError('required')">
+            Campo requerido.
+          </mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Nombre del Lugar" />
+          <input matInput formControlName="placeName" placeholder="Nombre del Lugar" />
+          <mat-error *ngIf="!reportForm.hasError('required')">
+            Campo requerido.
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field>
-          <textarea matInput placeholder="Descripcion"></textarea>
+          <textarea matInput formControlName="description" placeholder="Descripcion"></textarea>
+          <mat-error *ngIf="!reportForm.hasError('required')">
+            Campo requerido.
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field>
-          <mat-select placeholder="Tipo De Abuso">
-            <mat-option value="abuse" *ngFor="let abuse of abuseList">{{ abuse }}</mat-option>
+          <mat-select placeholder="Tipo De Abuso" formControlName="abuseType">
+            <mat-option value="{{ abuse }}" *ngFor="let abuse of abuseList">{{ abuse }}</mat-option>
           </mat-select>
+          <mat-error *ngIf="!reportForm.hasError('required')">
+            Campo requerido.
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="Fecha Del Suceso" />
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="dateOfEvent"
+            placeholder="Fecha Del Suceso"
+          />
+
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="!reportForm.hasError('required')">
+            Campo requerido.
+          </mat-error>
         </mat-form-field>
 
         <button
@@ -47,16 +69,30 @@
         >
           Adjuntar Imagen
         </button>
-        <input hidden type="file" #imgFileInput (change)="previewImage($event)" />
-
+        <input
+          hidden
+          type="file"
+          #imgFileInput
+          formControlName="imageName"
+          (change)="previewImage($event)"
+        />
         <mat-form-field>
-          <input matInput placeholder="Ubicacion En El Map (Latitud & Longitud)" />
+          <input
+            matInput
+            formControlName="locationLatLong"
+            placeholder="Ubicacion En El Map (Latitud & Longitud)"
+          />
+          <mat-error *ngIf="!reportForm.hasError('required')">
+            Campo requerido.
+          </mat-error>
         </mat-form-field>
       </form>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-stroked-button color="accent">Cancelar</button>
-      <button mat-raised-button color="accent">Reportar</button>
+      <button mat-stroked-button color="accent" (click)="onReset()">Cancelar</button>
+      <button mat-raised-button color="accent" (click)="onSubmit()" [disabled]="!reportForm.valid">
+        Reportar
+      </button>
     </mat-card-actions>
   </mat-card>
 </div>
