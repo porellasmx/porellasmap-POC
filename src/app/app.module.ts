@@ -4,6 +4,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 
 /* App components */
 import { AppComponent } from './app.component';
@@ -74,7 +75,10 @@ import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
     MatCardModule,
     MatButtonModule,
     GooglePlaceModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: ''
+    })
   ],
   providers: [MatNativeDateModule],
   bootstrap: [AppComponent]
