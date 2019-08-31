@@ -15,7 +15,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { NewsPageComponent } from './news-page/news-page.component';
 import { DonationsPageComponent } from './donations-page/donations-page.component';
-import { MapComponent } from './dashboard-page/map/map.component';
+import { MapComponent } from './shared/components/map/map.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { NewsDashboardComponent } from './news-page/news-dashboard/news-dashboard.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
