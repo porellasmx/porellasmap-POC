@@ -79,16 +79,22 @@
             formControlName="imageName"
             (change)="previewImage($event)"
           />
-          <mat-form-field>
-            <input
-              matInput
-              formControlName="locationLatLong"
-              placeholder="Ubicacion En El Map (Latitud & Longitud)"
-            />
-            <mat-error *ngIf="!reportForm.hasError('required')">
-              Campo requerido.
-            </mat-error>
-          </mat-form-field>
+          <div class="location">
+            <mat-form-field>
+              <input matInput formControlName="lat" placeholder="Latitude" />
+
+              <mat-error *ngIf="!reportForm.hasError('required')">
+                Campo requerido.
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="location">
+              <input matInput formControlName="long" placeholder="Longitude" />
+              <mat-error *ngIf="!reportForm.hasError('required')">
+                Campo requerido.
+              </mat-error>
+            </mat-form-field>
+          </div>
         </form>
       </mat-card-content>
       <mat-card-actions>
