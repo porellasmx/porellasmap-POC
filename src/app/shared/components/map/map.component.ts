@@ -16,7 +16,7 @@ export class MapComponent implements OnInit {
 
   constructor(private mapService: MapService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getNewMarker();
   }
 
@@ -24,24 +24,28 @@ export class MapComponent implements OnInit {
     this.$newMarker = this.mapService.$tempMarker;
   }
 
-  markerDragEnd(marker: Marker, $event: MouseEvent) {
-    console.log('dragEnd', marker, $event);
+  markerDragEnd($event: MouseEvent): void {
+    this.markerCreator($event, '');
   }
 
-  markerOver(marker: Marker) {
+  markerOver(marker: Marker): void {
     marker.animation = 'BOUNCE';
   }
 
-  markerOut(marker: Marker) {
+  markerOut(marker: Marker): void {
     marker.animation = '';
   }
 
-  mapClicked($event: any) {
+  mapClicked($event: any): void {
+    this.markerCreator($event, 'DROP');
+  }
+
+  markerCreator($event: any, ani: string): void {
     const newMarker = {
       lat: $event.coords.lat,
       long: $event.coords.lng,
       draggable: true,
-      animation: 'DROP'
+      animation: ani
     };
 
     this.mapService.setTempMarker(newMarker);

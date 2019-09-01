@@ -11,7 +11,7 @@
       [longitude]="newMarker.long"
       [animation]="newMarker.animation"
       [markerDraggable]="newMarker.draggable"
-      (dragEnd)="markerDragEnd(newMarker, $event)"
+      (dragEnd)="markerDragEnd($event)"
       (mouseOver)="markerOver(newMarker)"
       (mouseOut)="markerOut(newMarker)"
     ></agm-marker>
