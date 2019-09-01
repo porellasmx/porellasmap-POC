@@ -17,6 +17,7 @@ export class NewReportComponent implements OnInit {
     types: ['address'],
     componentRestrictions: { country: 'mx' }
   };
+  flagNA = false;
 
   reportForm = new FormGroup({
     address: new FormControl('', [Validators.required]),
@@ -85,5 +86,10 @@ export class NewReportComponent implements OnInit {
         });
       }
     });
+  }
+
+  addressNA(): void {
+    this.flagNA = !this.flagNA;
+    console.log(this.flagNA);
   }
 }

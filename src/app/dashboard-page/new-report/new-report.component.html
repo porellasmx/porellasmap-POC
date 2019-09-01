@@ -7,6 +7,11 @@
         <mat-card-subtitle>#PorEllas #NiUnaMas #PorEllasMapMx</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
+        <mat-checkbox (click)="addressNA()">
+          No se la direccion. Usa el mapa para marcar la ubicacion.
+        </mat-checkbox>
+        <span> </span>
+
         <form [formGroup]="reportForm" class="report-form">
           <mat-form-field>
             <input
@@ -17,7 +22,7 @@
               #placesRef
               color="accent"
               formControlName="address"
-              (onAddressChange)="handleAddressChange($event)"
+              [attr.disabled]="flagNA ? true : null"
             />
             <mat-error *ngIf="!reportForm.hasError('required')">
               Campo requerido.
