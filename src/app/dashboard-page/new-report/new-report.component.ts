@@ -90,6 +90,14 @@ export class NewReportComponent implements OnInit {
 
   addressNA(): void {
     this.flagNA = !this.flagNA;
-    console.log(this.flagNA);
+    if (this.flagNA) {
+      this.reportForm.patchValue({
+        address: 'N/A'
+      });
+    } else {
+      this.reportForm.patchValue({
+        address: ''
+      });
+    }
   }
 }
