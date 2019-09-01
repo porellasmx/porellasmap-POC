@@ -13,6 +13,9 @@ export class MapService {
 
   private tempMarkerSource = new BehaviorSubject<Marker>(null);
   $tempMarker = this.tempMarkerSource.asObservable();
+
+  BASE_URL = '';
+
   constructor(private http: HttpClient) {}
 
   setNewReport(report: Report) {
