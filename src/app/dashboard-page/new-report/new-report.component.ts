@@ -32,6 +32,7 @@ export class NewReportComponent implements OnInit {
 
   ngOnInit() {
     this.buildAbuseList();
+    this.getNewMarker();
   }
 
   handleAddressChange(address: Address): void {
@@ -73,5 +74,16 @@ export class NewReportComponent implements OnInit {
 
   onReset(): void {
     this.reportForm.reset();
+  }
+
+  getNewMarker(): void {
+    this.mapService.$tempMarker.subscribe(m => {
+      if (m) {
+        this.reportForm.patchValue({
+          lat: m.lat,
+          long: m.long
+        });
+      }
+    });
   }
 }
