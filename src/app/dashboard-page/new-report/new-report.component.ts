@@ -44,7 +44,9 @@ export class NewReportComponent implements OnInit {
 
     this.mapService.setTempMarker({
       lat: address.geometry.location.lat(),
-      long: address.geometry.location.lng()
+      long: address.geometry.location.lng(),
+      animation: 'DROP',
+      draggable: true
     });
   }
 
