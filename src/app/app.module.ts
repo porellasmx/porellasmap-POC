@@ -37,6 +37,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
@@ -73,6 +74,7 @@ import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
     MatSelectModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    MatCheckboxModule,
     MatCardModule,
     MatButtonModule,
     GooglePlaceModule,
