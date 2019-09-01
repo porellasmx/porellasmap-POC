@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
+import { HttpClientModule } from '@angular/common/http';
 
 /* App components */
 import { AppComponent } from './app.component';
@@ -77,8 +78,9 @@ import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
     GooglePlaceModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey: ''
-    })
+      apiKey: 'AIzaSyBNg_O4VHVbCB9tUs4w5wX90yuvWyOpAA4'
+    }),
+    HttpClientModule
   ],
   providers: [MatNativeDateModule],
   bootstrap: [AppComponent]
