@@ -40,6 +40,11 @@
         margin-bottom: 16px;
       }
     }
+
+    .location {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   .map {

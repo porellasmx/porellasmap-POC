@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MapService } from 'src/app/shared/services/map.service';
+import { Report } from 'src/app/shared/models/report.model';
 
 @Component({
   selector: 'app-new-report',
@@ -22,10 +24,11 @@ export class NewReportComponent implements OnInit {
     description: new FormControl('', [Validators.required, Validators.minLength(20)]),
     abuseType: new FormControl('', [Validators.required]),
     dateOfEvent: new FormControl('', [Validators.required]),
-    locationLatLong: new FormControl('', [Validators.required]),
+    lat: new FormControl('', [Validators.required]),
+    long: new FormControl('', [Validators.required]),
     imageName: new FormControl('', []) //Validators.required
   });
-  constructor() {}
+  constructor(private mapService: MapService) {}
 
   ngOnInit() {
     this.buildAbuseList();
@@ -35,7 +38,13 @@ export class NewReportComponent implements OnInit {
     this.reportForm.patchValue({
       address: address.formatted_address,
       placeName: address.name,
-      locationLatLong: `Lat: ${address.geometry.location.lat()} Long: ${address.geometry.location.lng()}`
+      lat: address.geometry.location.lat(),
+      long: address.geometry.location.lng()
+    });
+
+    this.mapService.setTempMarker({
+      lat: address.geometry.location.lat(),
+      long: address.geometry.location.lng()
     });
   }
 
@@ -46,6 +55,16 @@ export class NewReportComponent implements OnInit {
   onSubmit(): void {
     if (this.reportForm.valid) {
       console.log(this.reportForm.value);
+      const newReport = {
+        address: this.reportForm.value.address,
+        placeName: this.reportForm.value.address,
+        description: this.reportForm.value.address,
+        abuseType: this.reportForm.value.address,
+        dateOfEvent: this.reportForm.value.dateOfEvent,
+        marker: { lat: this.reportForm.value.lat, long: this.reportForm.value.long },
+        imageName: this.reportForm.value.imageName
+      };
+
       this.onReset();
     }
   }
