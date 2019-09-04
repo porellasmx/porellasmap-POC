@@ -5,7 +5,10 @@
   overflow-x: hidden; /* Disable horizontal scroll */
   position: absolute;
   top: 40px;
-  z-index: 0;
+  z-index: 1;
+  -webkit-box-shadow: 1px 5px 6px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 5px 6px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 5px 6px 1px rgba(0, 0, 0, 0.75);
   &__body {
     margin: 8px 0;
     &--list {
