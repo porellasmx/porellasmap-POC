@@ -40,6 +40,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { MapDashComponent } from './dashboard-page/map-dash/map-dash.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
     SidenavComponent,
     NewReportComponent,
     StatsComponent,
-    ReportDetailsComponent
+    ReportDetailsComponent,
+    MapDashComponent
   ],
   imports: [
     BrowserModule,
