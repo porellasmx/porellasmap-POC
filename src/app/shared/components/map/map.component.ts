@@ -3,6 +3,8 @@ import { darkStyle } from './map-styles';
 import { Observable } from 'rxjs';
 import { Marker } from '../../models/marker.model';
 import { MapService } from '../../services/map.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -14,7 +16,7 @@ export class MapComponent implements OnInit {
   style = darkStyle;
   $newMarker: Observable<Marker>;
 
-  constructor(private mapService: MapService) {}
+  constructor(private mapService: MapService, private router: Router) {}
 
   ngOnInit(): void {
     this.getNewMarker();
@@ -37,7 +39,7 @@ export class MapComponent implements OnInit {
   }
 
   mapClicked($event: any): void {
-    this.markerCreator($event, 'DROP');
+    this.router.url === '/dashboard/denuncia' ? this.markerCreator($event, 'DROP') : null;
   }
 
   markerCreator($event: any, ani: string): void {
