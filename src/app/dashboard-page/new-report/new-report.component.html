@@ -23,6 +23,7 @@
               color="accent"
               formControlName="address"
               [attr.disabled]="flagNA ? true : null"
+              (onAddressChange)="handleAddressChange($event)"
             />
             <mat-error *ngIf="!reportForm.hasError('required')">
               Campo requerido.
