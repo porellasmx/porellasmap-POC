@@ -30,8 +30,11 @@ export class MapService {
     this.tempMarkerSource.next(marker);
   }
 
-  addReport(report: Report): Observable<Report> {
-    return null; //this.http.post();
+  addReport(report: Report): Observable<{ message: string; report: Report; status: number }> {
+    return this.http.post<{ message: string; report: Report; status: number }>(
+      this.BASE_URL,
+      report
+    );
   }
 
   getReportsDB(): void {
@@ -39,7 +42,6 @@ export class MapService {
       .get<Report[]>(this.BASE_URL)
       .pipe(first())
       .subscribe(reportsData => {
-        console.log(reportsData);
         this.setReports(reportsData);
       });
   }
