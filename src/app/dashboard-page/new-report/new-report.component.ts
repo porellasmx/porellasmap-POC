@@ -58,16 +58,19 @@ export class NewReportComponent implements OnInit {
 
   onSubmit(): void {
     if (this.reportForm.valid) {
-      console.log(this.reportForm.value);
       const newReport = {
         address: this.reportForm.value.address,
-        placeName: this.reportForm.value.address,
-        description: this.reportForm.value.address,
-        abuseType: this.reportForm.value.address,
+        placeName: this.reportForm.value.placeName,
+        description: this.reportForm.value.description,
+        abuseType: this.reportForm.value.abuseType,
         dateOfEvent: this.reportForm.value.dateOfEvent,
         marker: { lat: this.reportForm.value.lat, long: this.reportForm.value.long },
         imageName: this.reportForm.value.imageName
       };
+
+      this.mapService.addReport(newReport).subscribe(report => {
+        console.log('data back', report);
+      });
 
       this.onReset();
     }
