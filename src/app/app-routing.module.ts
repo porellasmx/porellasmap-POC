@@ -6,6 +6,7 @@ import { MapComponent } from './shared/components/map/map.component';
 import { NewReportComponent } from './dashboard-page/new-report/new-report.component';
 import { StatsComponent } from './dashboard-page/stats/stats.component';
 import { ReportDetailsComponent } from './report-details/report-details.component';
+import { MapDashComponent } from './dashboard-page/map-dash/map-dash.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'dashboard/mapa',
-    component: StatsComponent
+    component: MapDashComponent
   },
   {
     path: 'dashboard/denuncia',
