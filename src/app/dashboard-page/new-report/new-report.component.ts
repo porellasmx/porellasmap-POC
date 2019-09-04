@@ -3,7 +3,8 @@ import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MapService } from 'src/app/shared/services/map.service';
-import { Report } from 'src/app/shared/models/report.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { UiService } from 'src/app/shared/services/ui.service';
 
 @Component({
   selector: 'app-new-report',
@@ -29,7 +30,7 @@ export class NewReportComponent implements OnInit {
     long: new FormControl('', [Validators.required]),
     imageName: new FormControl('', []) //Validators.required
   });
-  constructor(private mapService: MapService) {}
+  constructor(private mapService: MapService, private uiService: UiService) {}
 
   ngOnInit() {
     this.buildAbuseList();
@@ -69,10 +70,9 @@ export class NewReportComponent implements OnInit {
       };
 
       this.mapService.addReport(newReport).subscribe(report => {
-        console.log('data back', report);
+        this.uiService.setSnackBar(report.message, 3000);
+        this.onReset();
       });
-
-      this.onReset();
     }
   }
 
