@@ -38,6 +38,7 @@ import { MatNativeDateModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { MapDashComponent } from './dashboard-page/map-dash/map-dash.component';
@@ -77,6 +78,7 @@ import { MapDashComponent } from './dashboard-page/map-dash/map-dash.component';
     MatNativeDateModule,
     MatDatepickerModule,
     MatCheckboxModule,
+    MatSnackBarModule,
     MatCardModule,
     MatButtonModule,
     GooglePlaceModule,
