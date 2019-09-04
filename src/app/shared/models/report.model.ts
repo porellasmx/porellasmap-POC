@@ -6,6 +6,6 @@ export interface Report {
   description: string;
   abuseType: string;
   dateOfEvent: Date;
-  marker: Marker;
+  marker?: Marker;
   imageName: any;
 }
