@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Report } from '../models/report.model';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { Marker } from '../models/marker.model';
 import { HttpClient } from '@angular/common/http';
+import { map, first } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,10 @@ export class MapService {
   private tempMarkerSource = new BehaviorSubject<Marker>(null);
   $tempMarker = this.tempMarkerSource.asObservable();
 
-  BASE_URL = '';
+  private reportsSource = new BehaviorSubject<Report[]>(null);
+  $reports = this.reportsSource.asObservable();
+
+  BASE_URL = 'http://localhost:3000/api/reports';
 
   constructor(private http: HttpClient) {}
 
@@ -30,8 +34,18 @@ export class MapService {
     return null; //this.http.post();
   }
 
-  getReports(): Observable<Report[]> {
-    return null;
+  getReportsDB(): void {
+    this.http
+      .get<Report[]>(this.BASE_URL)
+      .pipe(first())
+      .subscribe(reportsData => {
+        console.log(reportsData);
+        this.setReports(reportsData);
+      });
+  }
+
+  setReports(reports: Report[]): void {
+    this.reportsSource.next(reports);
   }
 
   getReport(reportID: number): Observable<Report> {
