@@ -35,13 +35,8 @@ export class MapService {
     return this.http.post<ReportAPI>(this.BASE_URL, report);
   }
 
-  getReportsDB(): void {
-    this.http
-      .get<Report[]>(this.BASE_URL)
-      .pipe(first())
-      .subscribe(reportsData => {
-        this.setReports(reportsData);
-      });
+  getReportsDB(): Observable<ReportAPI> {
+    return this.http.get<ReportAPI>(this.BASE_URL);
   }
 
   setReports(reports: Report[]): void {
