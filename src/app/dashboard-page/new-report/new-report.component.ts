@@ -72,6 +72,7 @@ export class NewReportComponent implements OnInit {
       this.mapService.addReport(newReport).subscribe(report => {
         this.uiService.setSnackBar(report.message, 3000);
         this.onReset();
+        this.mapService.setTempMarker(null);
       });
     }
   }
