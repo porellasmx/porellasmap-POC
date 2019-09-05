@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { darkStyle } from './map-styles';
 import { Observable } from 'rxjs';
 import { Marker } from '../../models/marker.model';
 import { MapService } from '../../services/map.service';
 import { Router } from '@angular/router';
+import { Report } from '../../models/report.model';
 
 @Component({
   selector: 'app-map',
@@ -11,6 +12,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
+  @Input()
+  reports: Report[];
+
   lat = 19.432608;
   lng = -99.133209;
   style = darkStyle;
@@ -51,5 +55,9 @@ export class MapComponent implements OnInit {
     };
 
     this.mapService.setTempMarker(newMarker);
+  }
+
+  clickedMarker(reportID: number) {
+    console.log(reportID);
   }
 }

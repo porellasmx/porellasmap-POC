@@ -15,4 +15,14 @@
       (mouseOut)="markerOut(newMarker)"
     ></agm-marker>
   </ng-container>
+  <ng-container *ngIf="reports">
+    <agm-marker
+      *ngFor="let report of reports.reports"
+      [latitude]="report.lat"
+      [longitude]="report.long"
+      [animation]="report.animation"
+      (mouseOut)="markerOut(report)"
+      (markerClick)="clickedMarker(report._id)"
+    ></agm-marker>
+  </ng-container>
 </agm-map>
