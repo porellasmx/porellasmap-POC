@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MapService } from 'src/app/shared/services/map.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UiService } from 'src/app/shared/services/ui.service';
+import { PlacesService } from 'src/app/shared/services/places.service';
 
 @Component({
   selector: 'app-new-report',
@@ -15,7 +16,7 @@ export class NewReportComponent implements OnInit {
   @ViewChild('placesRef', { static: false }) placesRef: GooglePlaceDirective;
   abuseList: string[];
   options = {
-    types: ['address'],
+    types: ['establishment'],
     componentRestrictions: { country: 'mx' }
   };
   flagNA = false;
@@ -28,9 +29,17 @@ export class NewReportComponent implements OnInit {
     dateOfEvent: new FormControl('', [Validators.required]),
     lat: new FormControl('', [Validators.required]),
     long: new FormControl('', [Validators.required]),
+    zipcode: new FormControl('', [Validators.required]),
+    city: new FormControl('', [Validators.required]),
+    state: new FormControl('', [Validators.required]),
+    country: new FormControl('', [Validators.required]),
     imageName: new FormControl('', []) //Validators.required
   });
-  constructor(private mapService: MapService, private uiService: UiService) {}
+  constructor(
+    private mapService: MapService,
+    private uiService: UiService,
+    private placesService: PlacesService
+  ) {}
 
   ngOnInit() {
     this.buildAbuseList();
@@ -42,7 +51,14 @@ export class NewReportComponent implements OnInit {
       address: address.formatted_address,
       placeName: address.name,
       lat: address.geometry.location.lat(),
-      long: address.geometry.location.lng()
+      long: address.geometry.location.lng(),
+      zipcode: this.placesService.getPlaceTypeValue(address.address_components, 'postal_code'),
+      state: this.placesService.getPlaceTypeValue(
+        address.address_components,
+        'administrative_area_level_1'
+      ),
+      city: this.placesService.getPlaceTypeValue(address.address_components, 'locality'),
+      country: this.placesService.getPlaceTypeValue(address.address_components, 'country')
     });
 
     this.mapService.setTempMarker({
@@ -66,7 +82,11 @@ export class NewReportComponent implements OnInit {
         abuseType: this.reportForm.value.abuseType,
         dateOfEvent: this.reportForm.value.dateOfEvent,
         marker: { lat: this.reportForm.value.lat, long: this.reportForm.value.long },
-        imageName: this.reportForm.value.imageName
+        imageName: this.reportForm.value.imageName,
+        zipcode: this.reportForm.value.zipcode,
+        state: this.reportForm.value.state,
+        city: this.reportForm.value.city,
+        country: this.reportForm.value.country
       };
 
       this.mapService.addReport(newReport).subscribe(report => {
