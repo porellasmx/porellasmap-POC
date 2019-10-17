@@ -53,22 +53,44 @@
               Campo requerido.
             </mat-error>
           </mat-form-field>
+          <div class="columns">
+            <mat-form-field>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                formControlName="dateOfEvent"
+                placeholder="Fecha Del Suceso"
+              />
 
-          <mat-form-field>
-            <input
-              matInput
-              [matDatepicker]="picker"
-              formControlName="dateOfEvent"
-              placeholder="Fecha Del Suceso"
-            />
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="!reportForm.hasError('required')">
+                Campo requerido.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput formControlName="timeOfEvent" type="time" />
+              <mat-error *ngIf="!reportForm.hasError('required')">
+                Campo requerido.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="columns">
+            <mat-form-field>
+              <input matInput formControlName="lat" placeholder="Latitude" />
 
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-            <mat-error *ngIf="!reportForm.hasError('required')">
-              Campo requerido.
-            </mat-error>
-          </mat-form-field>
+              <mat-error *ngIf="!reportForm.hasError('required')">
+                Campo requerido.
+              </mat-error>
+            </mat-form-field>
 
+            <mat-form-field class="location">
+              <input matInput formControlName="long" placeholder="Longitude" />
+              <mat-error *ngIf="!reportForm.hasError('required')">
+                Campo requerido.
+              </mat-error>
+            </mat-form-field>
+          </div>
           <button
             type="button"
             mat-stroked-button
@@ -85,22 +107,6 @@
             formControlName="imageName"
             (change)="previewImage($event)"
           />
-          <div class="location">
-            <mat-form-field>
-              <input matInput formControlName="lat" placeholder="Latitude" />
-
-              <mat-error *ngIf="!reportForm.hasError('required')">
-                Campo requerido.
-              </mat-error>
-            </mat-form-field>
-
-            <mat-form-field class="location">
-              <input matInput formControlName="long" placeholder="Longitude" />
-              <mat-error *ngIf="!reportForm.hasError('required')">
-                Campo requerido.
-              </mat-error>
-            </mat-form-field>
-          </div>
         </form>
       </mat-card-content>
       <mat-card-actions>
