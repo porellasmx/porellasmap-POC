@@ -27,6 +27,7 @@ export class NewReportComponent implements OnInit {
     description: new FormControl('', [Validators.required, Validators.minLength(20)]),
     abuseType: new FormControl('', [Validators.required]),
     dateOfEvent: new FormControl('', [Validators.required]),
+    timeOfEvent: new FormControl('', [Validators.required]),
     lat: new FormControl('', [Validators.required]),
     long: new FormControl('', [Validators.required]),
     zipcode: new FormControl('', [Validators.required]),
