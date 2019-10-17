@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -6,13 +6,14 @@ import { MapService } from 'src/app/shared/services/map.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UiService } from 'src/app/shared/services/ui.service';
 import { PlacesService } from 'src/app/shared/services/places.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-new-report',
   templateUrl: './new-report.component.html',
   styleUrls: ['./new-report.component.scss']
 })
-export class NewReportComponent implements OnInit {
+export class NewReportComponent implements OnInit, OnDestroy {
   @ViewChild('placesRef', { static: false }) placesRef: GooglePlaceDirective;
   abuseList: string[];
   options = {
@@ -20,6 +21,8 @@ export class NewReportComponent implements OnInit {
     componentRestrictions: { country: 'mx' }
   };
   flagNA = false;
+  private tempMarkerSubscription: Subscription;
+  private addReportSubscription: Subscription;
 
   reportForm = new FormGroup({
     address: new FormControl('', [Validators.required]),
@@ -82,6 +85,7 @@ export class NewReportComponent implements OnInit {
         description: this.reportForm.value.description,
         abuseType: this.reportForm.value.abuseType,
         dateOfEvent: this.reportForm.value.dateOfEvent,
+        timeOfEvent: this.reportForm.value.timeOfEvent,
         marker: { lat: this.reportForm.value.lat, long: this.reportForm.value.long },
         imageName: this.reportForm.value.imageName,
         zipcode: this.reportForm.value.zipcode,
@@ -90,7 +94,7 @@ export class NewReportComponent implements OnInit {
         country: this.reportForm.value.country
       };
 
-      this.mapService.addReport(newReport).subscribe(report => {
+      this.addReportSubscription = this.mapService.addReport(newReport).subscribe(report => {
         this.uiService.setSnackBar(report.message, 3000);
         this.onReset();
         this.mapService.setTempMarker(null);
@@ -103,7 +107,7 @@ export class NewReportComponent implements OnInit {
   }
 
   getNewMarker(): void {
-    this.mapService.$tempMarker.subscribe(m => {
+    this.tempMarkerSubscription = this.mapService.$tempMarker.subscribe(m => {
       if (m) {
         this.reportForm.patchValue({
           lat: m.lat,
@@ -124,5 +128,10 @@ export class NewReportComponent implements OnInit {
         address: ''
       });
     }
+  }
+
+  ngOnDestroy() {
+    this.tempMarkerSubscription.unsubscribe();
+    this.addReportSubscription.unsubscribe();
   }
 }
