@@ -100,13 +100,7 @@
           >
             Adjuntar Imagen
           </button>
-          <input
-            hidden
-            type="file"
-            #imgFileInput
-            formControlName="imageName"
-            (change)="previewImage($event)"
-          />
+          <input hidden type="file" #imgFileInput (change)="onImagePicked($event)" />
         </form>
       </mat-card-content>
       <mat-card-actions>
