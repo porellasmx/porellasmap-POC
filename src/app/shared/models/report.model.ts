@@ -7,5 +7,5 @@ export interface Report {
   abuseType: string;
   dateOfEvent: Date;
   marker?: Marker;
-  imageName: any;
+  image: any;
 }
