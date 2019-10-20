@@ -31,7 +31,7 @@ export class MapService {
     this.tempMarkerSource.next(marker);
   }
 
-  addReport(report: Report): Observable<ReportAPI> {
+  addReport(report: FormData): Observable<ReportAPI> {
     return this.http.post<ReportAPI>(this.BASE_URL, report);
   }
 
