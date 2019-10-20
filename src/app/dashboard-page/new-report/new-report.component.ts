@@ -37,7 +37,7 @@ export class NewReportComponent implements OnInit, OnDestroy {
     city: new FormControl('', [Validators.required]),
     state: new FormControl('', [Validators.required]),
     country: new FormControl('', [Validators.required]),
-    imageName: new FormControl('', []) //Validators.required
+    image: new FormControl(null, []) //Validators.required
   });
   constructor(
     private mapService: MapService,
@@ -87,13 +87,13 @@ export class NewReportComponent implements OnInit, OnDestroy {
         dateOfEvent: this.reportForm.value.dateOfEvent,
         timeOfEvent: this.reportForm.value.timeOfEvent,
         marker: { lat: this.reportForm.value.lat, long: this.reportForm.value.long },
-        imageName: this.reportForm.value.imageName,
+        image: this.reportForm.value.image,
         zipcode: this.reportForm.value.zipcode,
         state: this.reportForm.value.state,
         city: this.reportForm.value.city,
         country: this.reportForm.value.country
       };
-
+      console.log(newReport);
       this.addReportSubscription = this.mapService.addReport(newReport).subscribe(report => {
         this.uiService.setSnackBar(report.message, 3000);
         this.onReset();
@@ -128,6 +128,13 @@ export class NewReportComponent implements OnInit, OnDestroy {
         address: ''
       });
     }
+  }
+
+  onImagePicked(event: Event): void {
+    const FILE = (event.target as HTMLInputElement).files[0];
+    console.log(FILE);
+    this.reportForm.patchValue({ image: FILE });
+    this.reportForm.get('image').updateValueAndValidity();
   }
 
   ngOnDestroy() {
