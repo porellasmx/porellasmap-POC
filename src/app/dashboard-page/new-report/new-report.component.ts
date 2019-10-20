@@ -79,21 +79,20 @@ export class NewReportComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     if (this.reportForm.valid) {
-      const newReport = {
-        address: this.reportForm.value.address,
-        placeName: this.reportForm.value.placeName,
-        description: this.reportForm.value.description,
-        abuseType: this.reportForm.value.abuseType,
-        dateOfEvent: this.reportForm.value.dateOfEvent,
-        timeOfEvent: this.reportForm.value.timeOfEvent,
-        marker: { lat: this.reportForm.value.lat, long: this.reportForm.value.long },
-        image: this.reportForm.value.image,
-        zipcode: this.reportForm.value.zipcode,
-        state: this.reportForm.value.state,
-        city: this.reportForm.value.city,
-        country: this.reportForm.value.country
-      };
-      console.log(newReport);
+      const newReport = new FormData();
+      newReport.append('address', this.reportForm.value.address);
+      newReport.append('placeName', this.reportForm.value.placeName);
+      newReport.append('description', this.reportForm.value.description);
+      newReport.append('abuseType', this.reportForm.value.abuseType);
+      newReport.append('dateOfEvent', this.reportForm.value.dateOfEvent);
+      newReport.append('timeOfEvent', this.reportForm.value.timeOfEvent);
+      newReport.append('lat', this.reportForm.value.lat);
+      newReport.append('long', this.reportForm.value.long);
+      newReport.append('image', this.reportForm.value.image, this.reportForm.value.image.name);
+      newReport.append('zipcode', this.reportForm.value.zipcode);
+      newReport.append('state', this.reportForm.value.state);
+      newReport.append('city', this.reportForm.value.city);
+      newReport.append('country', this.reportForm.value.country);
       this.addReportSubscription = this.mapService.addReport(newReport).subscribe(report => {
         this.uiService.setSnackBar(report.message, 3000);
         this.onReset();
