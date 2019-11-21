@@ -1,6 +1,9 @@
 # porellasmap
 
-Una mapa para ellas, un mapa en el que ellas pueden anonimamente denunciar donde fueron agredidas fisicamente, verbal o sexualmente.
+Una mapa para ellas. Un mapa en el que ellas pueden anonimamente denunciar donde fueron agredidas fisicamente, verbal o sexualmente.
+
+
+A map for women. A man where women can make anonymous reports stating the details on where they were assulted.
 
 VS Code extension recommended to work on this project
 
