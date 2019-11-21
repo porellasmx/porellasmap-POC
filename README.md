@@ -20,3 +20,9 @@ VS Code extension recommended to work on this project
 -IntelliSense for CSS class names in HTML
 <br/>
 -JavaScript (ES6) code snippets
+
+
+To work with the project
+
+1) Run ```npm i``` in your terminal
+2) Run ```ng serve --o``` in your terminal
